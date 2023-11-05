@@ -34,10 +34,25 @@ plusBtn.addEventListener('mouseleave', stopAutoPlus);
 
 
 // - for the counter
-minusBtn.addEventListener('click', function () {
-    counter--;
-    newDisplay();
-});
+function startAutoMinus() {
+    if (!autoPlus) {
+        autoPlus = setInterval(() => {
+            counter--;
+            newDisplay();
+        }, speedAuto);
+    };
+};
+
+function stopAutoMinus() {
+    clearInterval(autoPlus);
+    autoPlus = null;
+};
+
+minusBtn.addEventListener('mousedown', startAutoMinus);
+minusBtn.addEventListener('mouseup', stopAutoMinus);
+minusBtn.addEventListener('mouseleave', stopAutoMinus);
+
+
 
 // reset the counter
 resetBtn.addEventListener('click', function () {
