@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgb(14, 228, 14);
+    width: 100vw;
+    height: 100vh;
+    padding-top: 200px;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter p#mycounter {
+    font-size: 7rem;
+    color: black;
+}
+
+
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btns button {
+    width: 100px;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 2rem;
+}
