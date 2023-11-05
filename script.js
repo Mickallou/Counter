@@ -1,4 +1,6 @@
 let counter = 0;
+let autoPlus
+const speedAuto = 100;
 const displayCounter = document.getElementById('mycounter');
 const plusBtn = document.getElementById('plus');
 const minusBtn = document.getElementById('minus');
@@ -11,11 +13,25 @@ function newDisplay() {
 
 newDisplay();
 
-// + for the counter
-plusBtn.addEventListener('click', function () {
-    counter++;
-    newDisplay();
-});
+// + for auto the counter
+function startAutoPlus() {
+    if (!autoPlus) {
+        autoPlus = setInterval(() => {
+            counter++;
+            newDisplay();
+        }, speedAuto);
+    };
+};
+
+function stopAutoPlus() {
+    clearInterval(autoPlus);
+    autoPlus = null;
+};
+
+plusBtn.addEventListener('mousedown', startAutoPlus);
+plusBtn.addEventListener('mouseup', stopAutoPlus);
+plusBtn.addEventListener('mouseleave', stopAutoPlus);
+
 
 // - for the counter
 minusBtn.addEventListener('click', function () {
